@@ -6,15 +6,22 @@ export function RegisterForm({ completeRegister }) {
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [emptyInputOnSubtmit, setEmptyInputOnSubtmit] = useState(false);
+	const [emptyInputOnSubmit, setEmptyInputOnSubmit] = useState(false);
 
 	function handleSubmit(event) {
-		setEmptyInputOnSubtmit(false);
 		event.preventDefault();
-		if (!firstName || !lastName || !email || !emptyInputOnSubtmit) {
-			setEmptyInputOnSubtmit(true);
+
+		setEmptyInputOnSubmit(false);
+
+		if (!firstName || !lastName || !email || !emptyInputOnSubmit) {
+			setEmptyInputOnSubmit(true);
 		} else {
-			completeRegister(password, email, firstName, lastName);
+			try {
+				completeRegister(password, email, firstName, lastName);
+				window.alert("Cadastro realizado com sucesso");
+			} catch (error) {
+				setEmptyInputOnSubmit(true);
+			}
 		}
 	}
 
@@ -22,48 +29,48 @@ export function RegisterForm({ completeRegister }) {
 		<form className={styles.registerForm} onSubmit={handleSubmit}>
 			<input
 				type="text"
-				className={!firstName && emptyInputOnSubtmit ? styles.emptyInput : ""}
-				placeholder={`${!firstName && emptyInputOnSubtmit ? "" : "First Name"}`}
+				className={!firstName && emptyInputOnSubmit ? styles.emptyInput : ""}
+				placeholder={`${!firstName && emptyInputOnSubmit ? "" : "First Name"}`}
 				value={firstName}
 				onChange={(e) => setFirstName(e.target.value)}
 			/>
-			{!firstName && emptyInputOnSubtmit ? (
+			{!firstName && emptyInputOnSubmit ? (
 				<p className={styles.inputEmptyMsg}>First Name cannot be empty</p>
 			) : (
 				""
 			)}
 			<input
 				type="text"
-				className={!lastName && emptyInputOnSubtmit ? styles.emptyInput : ""}
-				placeholder={`${!lastName && emptyInputOnSubtmit ? "" : "Last Name"}`}
+				className={!lastName && emptyInputOnSubmit ? styles.emptyInput : ""}
+				placeholder={`${!lastName && emptyInputOnSubmit ? "" : "Last Name"}`}
 				value={lastName}
 				onChange={(e) => setLastName(e.target.value)}
 			/>
-			{!lastName && emptyInputOnSubtmit ? (
+			{!lastName && emptyInputOnSubmit ? (
 				<p className={styles.inputEmptyMsg}>Last Name cannot be empty</p>
 			) : (
 				""
 			)}
 			<input
 				type="email"
-				className={!email && emptyInputOnSubtmit ? styles.emptyInput : ""}
-				placeholder={`${!email && emptyInputOnSubtmit ? "email@example.com" : "Email Address"}`}
+				className={!email && emptyInputOnSubmit ? styles.emptyInput : ""}
+				placeholder={`${!email && emptyInputOnSubmit ? "email@example.com" : "Email Address"}`}
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 			/>
-			{!email && emptyInputOnSubtmit ? (
+			{!email && emptyInputOnSubmit ? (
 				<p className={styles.inputEmptyMsg}>Looks like this is not an email</p>
 			) : (
 				""
 			)}
 			<input
 				type="password"
-				className={!password && emptyInputOnSubtmit ? styles.emptyInput : ""}
-				placeholder={`${!password && emptyInputOnSubtmit ? "" : "Password"}`}
+				className={!password && emptyInputOnSubmit ? styles.emptyInput : ""}
+				placeholder={`${!password && emptyInputOnSubmit ? "" : "Password"}`}
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
 			/>
-			{!password && emptyInputOnSubtmit ? (
+			{!password && emptyInputOnSubmit ? (
 				<p className={styles.inputEmptyMsg}>Password cannot be empty</p>
 			) : (
 				""
