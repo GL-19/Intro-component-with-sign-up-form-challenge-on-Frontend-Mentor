@@ -57,6 +57,10 @@ main {
 		border: transparent;
 		box-shadow: 0 7px 7px $darkBlue;
 
+		&:hover {
+			cursor: pointer;
+			filter: brightness(0.9);
+		}
 		span {
 			color: $grayishBlue;
 			font-weight: 400;

@@ -13,6 +13,7 @@ $white: #ffffff;
 	background: white;
 	border-radius: 10px;
 	box-shadow: 0 7px 7px $darkBlue;
+	font-family: "Poppins", sans-serif;
 
 	display: flex;
 	flex-direction: column;
@@ -29,6 +30,7 @@ $white: #ffffff;
 
 	input {
 		padding-left: 20px;
+		margin-top: 10px;
 		font-weight: 600;
 		color: $darkBlue;
 		border: 2px $grayishBlue solid;
@@ -42,9 +44,19 @@ $white: #ffffff;
 	}
 
 	button {
+		margin-top: 10px;
 		background: $green;
+
+		font-family: inherit;
+		text-transform: uppercase;
 		color: $white;
+
+		&:hover {
+			filter: brightness(1.1);
+			cursor: pointer;
+		}
 	}
+
 	p {
 		font-size: 10px;
 		text-align: center;
@@ -55,6 +67,7 @@ $white: #ffffff;
 	}
 
 	.emptyInput {
+		background: url(../../images/icon-error.svg) no-repeat center right 20px;
 		color: $pink;
 		border: 2px $pink solid;
 		&:focus {
