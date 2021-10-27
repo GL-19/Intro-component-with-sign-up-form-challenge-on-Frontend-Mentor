@@ -15,6 +15,7 @@ function App() {
 					but understanding how developers think is invaluable.
 				</p>
 			</div>
+
 			<div className={styles.registerWrapper}>
 				<button className={styles.trialBtn}>
 					Try it free 7 days <span>then $20/mo. thereafter</span>
