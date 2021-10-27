@@ -40,7 +40,7 @@ export function RegisterForm({ completeRegister }) {
 				completeRegister(password, email, firstName, lastName);
 				window.alert("Cadastro realizado com sucesso");
 			} catch (error) {
-				setEmptyInput(true);
+				console.log("Erro ao cadastrar");
 			}
 		}
 	}
@@ -72,7 +72,7 @@ export function RegisterForm({ completeRegister }) {
 				""
 			)}
 			<input
-				type="text"
+				type="email"
 				className={(!email && emptyInput) || invalidEmail ? styles.emptyInput : ""}
 				placeholder={`${
 					(!email && emptyInput) || invalidEmail ? "email@example.com" : "Email Address"
