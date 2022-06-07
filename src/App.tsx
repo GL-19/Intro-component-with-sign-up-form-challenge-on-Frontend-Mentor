@@ -1,9 +1,16 @@
 import styles from "./App.module.scss";
 import { RegisterForm } from "./components/RegisterForm";
 
+type FormData = {
+	password: string;
+	email: string;
+	firstName: string;
+	lastName: string;
+};
+
 function App() {
-	function printData(password, email, firstName, lastName) {
-		console.log({ password, email, firstName, lastName });
+	function printData({ password, email, firstName, lastName }: FormData): void {
+		console.log(password, email, firstName, lastName);
 	}
 
 	return (
@@ -11,8 +18,8 @@ function App() {
 			<div className={styles.infoWrapper}>
 				<h1>Learn to code by watching others</h1>
 				<p>
-					See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
-					but understanding how developers think is invaluable.
+					See how experienced developers solve problems in real-time. Watching scripted
+					tutorials is great, but understanding how developers think is invaluable.
 				</p>
 			</div>
 
