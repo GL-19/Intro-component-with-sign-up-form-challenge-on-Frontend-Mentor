@@ -76,11 +76,13 @@ export function RegisterForm({ completeRegister }: RegisterFormProps) {
 				value={firstName}
 				onChange={(e) => setFirstName(e.target.value)}
 			/>
+
 			{!firstName && emptyInput ? (
 				<p className={styles.inputEmptyMsg}>First Name cannot be empty</p>
 			) : (
 				""
 			)}
+
 			<input
 				type="text"
 				className={!lastName && emptyInput ? styles.emptyInput : ""}
@@ -88,11 +90,13 @@ export function RegisterForm({ completeRegister }: RegisterFormProps) {
 				value={lastName}
 				onChange={(e) => setLastName(e.target.value)}
 			/>
+
 			{!lastName && emptyInput ? (
 				<p className={styles.inputEmptyMsg}>Last Name cannot be empty</p>
 			) : (
 				""
 			)}
+
 			<input
 				type="email"
 				className={(!email && emptyInput) || invalidEmail ? styles.emptyInput : ""}
@@ -102,11 +106,13 @@ export function RegisterForm({ completeRegister }: RegisterFormProps) {
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 			/>
+
 			{(!email && emptyInput) || invalidEmail ? (
 				<p className={styles.inputEmptyMsg}>Looks like this is not an email</p>
 			) : (
 				""
 			)}
+
 			<input
 				type="password"
 				className={(!password && emptyInput) || shortPassword ? styles.emptyInput : ""}
@@ -114,6 +120,7 @@ export function RegisterForm({ completeRegister }: RegisterFormProps) {
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
 			/>
+
 			{!password && emptyInput ? (
 				<p className={styles.inputEmptyMsg}>Password cannot be empty</p>
 			) : shortPassword ? (
@@ -121,7 +128,9 @@ export function RegisterForm({ completeRegister }: RegisterFormProps) {
 			) : (
 				""
 			)}
+
 			<button type="submit">Claim your free trial</button>
+
 			<p>
 				By clicking the button, you are agreeing to our <span>Terms and Services</span>
 			</p>
