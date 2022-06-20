@@ -1,7 +1,7 @@
 import styles from "./RegisterForm.module.scss";
 import { FormEvent, useState } from "react";
 
-const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 interface RegisterFormData {
 	password: string;
